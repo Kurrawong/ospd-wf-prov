@@ -1,0 +1,31 @@
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wfdesc: <http://purl.org/wf4ever/wfdesc#>
+PREFIX wfprov: <http://purl.org/wf4ever/wfprov#>
+
+# Activity form
+CONSTRUCT {
+    ?output
+        prov:wasGeneratedBy ?wfr ;
+    .
+
+    ?wfr
+        prov:used ?input ;
+    .
+}
+
+# Entity-only form
+CONSTRUCT {
+    ?output prov:wasDerivedFrom ?input .
+}
+WHERE {
+    ?wfr
+        a wfprov:WorkflowRun ;
+        wfprov:usedInput ?input ;
+    .
+
+    ?input wfprov:wasOutputFrom ?wfr .
+
+    MINUS {
+        ?wfr wfprov:wasPartOfWorkflowRun ?x .
+    }
+}
