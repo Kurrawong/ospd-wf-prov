@@ -1,0 +1,142 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/dx/prof/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX wfdesc: <http://purl.org/wf4ever/wfdesc#>
+PREFIX wfprov: <http://purl.org/wf4ever/wfprov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<http://example.com/ospd-wf/wf2prov>
+    a owl:Ontology ;
+    owl:versionIRI <http://example.com/ospd/1.1> ;
+    owl:versionInfo "1.1" ;
+    schema:copyrightNotice "(c) 2021 Open Geospatial Consortium" ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2025-12-17"^^xsd:date ;
+    schema:dateModified "2025-12-17"^^xsd:date ;
+    schema:description "Mappings from wfdesc & wfprov to PROV-O classes and predicates" ;
+    schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
+    schema:name "Workflow Forever Mapping to PROV-O" ;
+    schema:publisher <https://defs.opengis.net/org/ogc> ;
+.
+
+wfdesc:Artifact
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:DataLink
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:Input
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:Output
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:Parameter
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:WorkflowInstance
+    rdfs:subClassOf wfdesc:Workflow ;
+.
+
+wfdesc:WorkflowTemplate
+    rdfs:subClassOf prov:Plan ;
+.
+
+wfdesc:hasArtifact
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+.
+
+wfdesc:hasDataLink
+    rdfs:subPropertyOf prov:used ;
+.
+
+wfdesc:hasInput
+    rdfs:subPropertyOf prov:used ;
+.
+
+wfdesc:hasOutput
+    rdfs:subPropertyOf prov:generated ;
+.
+
+wfdesc:hasSink
+    rdfs:subPropertyOf prov:entity ;
+.
+
+wfdesc:hasSource
+    rdfs:subPropertyOf prov:entity ;
+.
+
+wfdesc:hasSubWorkflow
+    rdfs:subPropertyOf wfdesc:hasSubProcess ;
+.
+
+wfprov:Artifact
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfprov:ProcessRun
+    rdfs:subClassOf prov:Activity ;
+.
+
+wfprov:WorkflowEngine
+    rdfs:subClassOf prov:Agent ;
+.
+
+wfprov:WorkflowRun
+    rdfs:subClassOf prov:Activity ;
+.
+
+wfprov:describedByParameter
+    owl:propertyChainAxiom (
+        prov:qualifiedAssociation
+        prov:hadPlan
+    ) ;
+.
+
+wfprov:describedByProcess
+    owl:propertyChainAxiom (
+        prov:qualifiedAssociation
+        prov:hadPlan
+    ) ;
+.
+
+wfprov:describedByWorkflow
+    owl:propertyChainAxiom (
+        prov:qualifiedAssociation
+        prov:hadPlan
+    ) ;
+.
+
+wfprov:usedInput
+    rdfs:subPropertyOf prov:used ;
+.
+
+wfprov:wasEnactedBy
+    rdfs:subPropertyOf prov:wasAssociatedWith ;
+.
+
+wfprov:wasOutputFrom
+    rdfs:subPropertyOf prov:wasGeneratedBy ;
+.
+
+wfprov:wasPartOfWorkflowRun
+    rdfs:subPropertyOf prov:wasInformedBy ;
+.
+
+wfdesc:Process
+    rdfs:subClassOf prov:Entity ;
+.
+
+wfdesc:Workflow
+    rdfs:subClassOf wfdesc:Process ;
+.
+
+wfdesc:hasSubProcess
+    rdfs:subPropertyOf prov:wasInformedBy ;
+.

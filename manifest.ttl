@@ -1,0 +1,23 @@
+PREFIX mrr: <https://prez.dev/ManifestResourceRoles/>
+PREFIX prez: <https://prez.dev/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX schema: <https://schema.org/>
+
+[]    a prez:Manifest ;
+    prof:hasResource 
+        [
+            prof:hasArtifact "resources/labels.ttl" ;
+            prof:hasRole mrr:CompleteCatalogueAndResourceLabels ;
+            schema:name "Labels files" ;
+        ] ,
+        [
+            prof:hasArtifact "resources/ontologies/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "OSPD Workflow Ontologies" ;
+        ] ,
+        [
+            prof:hasArtifact "resources/catalogue.ttl" ;
+            prof:hasRole mrr:CatalogueData ;
+            schema:name "OSPD Workflow Resources Catalogue" ;
+        ] ;
+.
