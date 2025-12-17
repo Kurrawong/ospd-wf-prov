@@ -10,12 +10,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a owl:Ontology ;
     owl:versionIRI <http://example.com/ospd/1.1> ;
     owl:versionInfo "1.1" ;
-    schema:copyrightNotice "(c) 2021 Open Geospatial Consortium" ;
+    schema:copyrightNotice "(c) 2025 Open Geospatial Consortium" ;
     schema:creator <https://orcid.org/0000-0002-8742-7730> ;
     schema:dateCreated "2025-12-17"^^xsd:date ;
     schema:dateModified "2025-12-17"^^xsd:date ;
     schema:description "Mappings from wfdesc & wfprov to PROV-O classes and predicates" ;
-    schema:license "https://www.ogc.org/license"^^xsd:anyURI ;
+    schema:license <http://purl.org/NET/rdflicense/APACHE2.0> ;
     schema:name "Workflow Forever Mapping to PROV-O" ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
 .
@@ -130,7 +130,7 @@ wfprov:wasPartOfWorkflowRun
 .
 
 wfdesc:Process
-    rdfs:subClassOf prov:Entity ;
+    rdfs:subClassOf prov:Plan ;
 .
 
 wfdesc:Workflow
