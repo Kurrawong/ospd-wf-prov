@@ -4,12 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://kurrawong.ai/semantic-bankground/ontologies>
     a schema:DataCatalog ;
-    schema:codeRepository "https://github.com/kurrawong/semantic-background" ;
+    schema:codeRepository "https://github.com/Kurrawong/ospd-wf-prov" ;
     schema:creator <https://kurrawong.ai> ;
-    schema:dateCreated "2025"^^xsd:gYear ;
+    schema:dateCreated "2025-12-17"^^xsd:date ;
     schema:dateModified "2025-12-17"^^xsd:date ;
     schema:description "A catalogue of Semantic Web resources Semantic Web resources created during the Open Geospatial Consortium's Open Science Persistent Demonstrator 2025 project to demonstrate the display and use of standardised provenance information for scientific workflows. " ;
-    schema:hasPart <http://example.com/ospd-wf/wf2prov> ;
+    schema:hasPart
+        <http://example.com/ospd-wf/ospd-wf4ever> ,
+        <http://example.com/ospd-wf/wf2prov> ;
     schema:name "OSPD Workflow Resources Catalogue" ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
     schema:status astatus:experimental ;
