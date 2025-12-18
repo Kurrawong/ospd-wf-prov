@@ -6,7 +6,7 @@ PREFIX schema: <https://schema.org/>
 []    a prez:Manifest ;
     prof:hasResource 
         [
-            prof:hasArtifact "resources/labels.ttl" ;
+            prof:hasArtifact "resources/_background/*.ttl" ;
             prof:hasRole mrr:CompleteCatalogueAndResourceLabels ;
             schema:name "Labels files" ;
         ] ,
@@ -14,6 +14,16 @@ PREFIX schema: <https://schema.org/>
             prof:hasArtifact "resources/ontologies/*.ttl" ;
             prof:hasRole mrr:ResourceData ;
             schema:name "OSPD Workflow Ontologies" ;
+        ] ,
+        [
+            prof:hasArtifact "resources/validators/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "OSPD SHACL Validators" ;
+        ] ,
+        [
+            prof:hasArtifact "resources/workflows/*.ttl" ;
+            prof:hasRole mrr:ResourceData ;
+            schema:name "OSPD Workflow 4Ever workflow instances" ;
         ] ,
         [
             prof:hasArtifact "resources/catalogue.ttl" ;

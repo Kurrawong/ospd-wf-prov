@@ -11,7 +11,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:description "A catalogue of Semantic Web resources Semantic Web resources created during the Open Geospatial Consortium's Open Science Persistent Demonstrator 2025 project to demonstrate the display and use of standardised provenance information for scientific workflows. " ;
     schema:hasPart
         <http://example.com/ospd-wf/ospd-wf4ever> ,
-        <http://example.com/ospd-wf/wf2prov> ;
+        <http://example.com/ospd-wf/wf2prov> ,
+        <http://purl.org/wf4ever/wfdesc> ,
+        <http://purl.org/wf4ever/wfprov> ,
+        <https://example.org/kindgrove/KindGroveWorkflow> ,
+        <https://w3id.org/ogc/stac/core/> ;
     schema:name "OSPD Workflow Resources Catalogue" ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
     schema:status astatus:experimental ;
