@@ -85,7 +85,7 @@ wfprov:ProcessRun
 .
 
 wfprov:WorkflowEngine
-    rdfs:subClassOf prov:Agent ;
+    rdfs:subClassOf prov:SoftwareAgent ;
 .
 
 wfprov:WorkflowRun
