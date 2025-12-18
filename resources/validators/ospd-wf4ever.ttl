@@ -1,56 +1,64 @@
 PREFIX : <http://example.com/ospd-wf/ospd-wf4ever/>
+PREFIX ont: <http://example.com/ospd-wf/ospd-wf4ever>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<http://example.com/ospd-wf/ospd-wf4ever>
+:sh-01
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 01: There MUST be exactly one Workflow instance that is not linked to from another Workflow instance via wfdesc:hasSubWorkflow" ;
+.
+
+:sh-02
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 02: There MAY be multiple Workflow instances linked to a Workflow instance via wfdesc:hasSubWorkflow" ;
+.
+
+:sh-03
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 03: There MUST be at least one workflow input indicated on the top Workflow instance by the predicate wfdesc:hasInput" ;
+.
+
+:sh-04
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 04: There MUST be at least one workflow output indicated on the top Workflow instance by the predicate wfdesc:hasOutput" ;
+.
+
+:sh-05
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 05: Workflow instances MUST indicate how their Inputs and Outputs connect to contained Workflow or Process instance by use of DataLink objects" ;
+.
+
+:sh-06
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont: ;
+    sh:message "Shape 06: DataLink objects MUST indicate exactly one source and at least one sink object with wfdesc:hasSource & wfdesc:hasSink predicates" ;
+.
+
+ont:
     a owl:Ontology ;
-    owl:versionIRI :0.1 ;
-    schema:copyrightNotice "(c) 2025 Open Geospatial Consortium" ;
-    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
-    schema:dateCreated "2025-12-17"^^xsd:date ;
-    schema:dateModified "2025-12-17"^^xsd:date ;
-    schema:description "A SHACL Validator for the OGC's Open Science Persistent Demonstrator Profile of Workflow Forever" ;
-    schema:hasPart
+    rdfs:member
         :sh-01 ,
         :sh-02 ,
         :sh-03 ,
         :sh-04 ,
         :sh-05 ,
         :sh-06 ;
+    owl:versionIRI :0.1 ;
+    schema:copyrightNotice "(c) 2025 Open Geospatial Consortium" ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2025-12-17"^^xsd:date ;
+    schema:dateModified "2025-12-19"^^xsd:date ;
+    schema:description "A SHACL Validator for the OGC's Open Science Persistent Demonstrator Profile of Workflow Forever" ;
     schema:license <http://purl.org/NET/rdflicense/APACHE2.0> ;
     schema:name "OSPD Workflow Forever Validator" ;
     schema:publisher <https://defs.opengis.net/org/ogc> ;
     schema:version "0.1 2025-12: stub version only with shapes' criteria given as messages only" ;
-.
-
-:sh-01
-    a sh:NodeShape ;
-    sh:message "Shape 01: There MUST be exactly one Workflow instance that is not linked to from another Workflow instance via wfdesc:hasSubWorkflow" ;
-.
-
-:sh-02
-    a sh:NodeShape ;
-    sh:message "Shape 02: There MAY be multiple Workflow instances linked to a Workflow instance via wfdesc:hasSubWorkflow" ;
-.
-
-:sh-03
-    a sh:NodeShape ;
-    sh:message "Shape 03: There MUST be at least one workflow input indicated on the top Workflow instance by the predicate wfdesc:hasInput" ;
-.
-
-:sh-04
-    a sh:NodeShape ;
-    sh:message "Shape 04: There MUST be at least one workflow output indicated on the top Workflow instance by the predicate wfdesc:hasOutput" ;
-.
-
-:sh-05
-    a sh:NodeShape ;
-    sh:message "Shape 05: Workflow instances MUST indicate how their Inputs and Outputs connect to contained Workflow or Process instance by use of DataLink objects" ;
-.
-
-:sh-06
-    a sh:NodeShape ;
-    sh:message "Shape 06: DataLink objects MUST indicate exactly one source and at least one sink object with wfdesc:hasSource & wfdesc:hasSink predicates" ;
 .
